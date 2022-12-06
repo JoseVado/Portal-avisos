@@ -1,0 +1,19 @@
+.title{
+    width: 50%;
+}
+
+.title p{
+    opacity: 50%;
+}
+
+.filter{
+    width: 20%;
+    margin-left: auto;
+    margin-right: 0;
+    position: relative;
+    top: -2rem;
+    line-height: 0;
+}
+.filter select{
+    width: 95%;
+}
