@@ -13,6 +13,7 @@ import { TablaAdminsComponent } from './componentes/admin/tabla-admins/tabla-adm
 import { SubirModificarAvisoComponent } from './componentes/admin/subir-modificar-aviso/subir-modificar-aviso.component';
 import { SubirModificarAdminComponent } from './componentes/admin/subir-modificar-admin/subir-modificar-admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaginadoComponent } from './componentes/cliente/paginado/paginado.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TablaAvisosComponent,
     TablaAdminsComponent,
     SubirModificarAvisoComponent,
-    SubirModificarAdminComponent
+    SubirModificarAdminComponent,
+    PaginadoComponent
   ],
   imports: [
     BrowserModule,
