@@ -40,13 +40,13 @@
       <ul class="navbar-nav ms-auto">
 
         <li *ngIf="!isLoggedInt" class="nav-item">
-          <a routerLink="/login" class="btn btn-primary" routerLinkActive="router-link-active">
+          <a routerLink="/login" class="btn btn-info" routerLinkActive="router-link-active">
             <i class="fas fa-user"></i>Iniciar sesión
           </a>
         </li>
 
         <li *ngIf="isLoggedInt" class="nav-item">
-          <a style="cursor: pointer;" (click)="logout()" class="btn btn-primary">
+          <a (click)="logout()" class="btn btn-info">
             <i class="fas fa-user-times"></i>Cerrar sesión
           </a>
         </li>

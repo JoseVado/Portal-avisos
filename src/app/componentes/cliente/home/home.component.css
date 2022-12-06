@@ -17,3 +17,6 @@
 .filter select{
     width: 95%;
 }
+.card-title{
+    line-height: 5px;
+}

@@ -1,0 +1,14 @@
+.container{
+    width: 75%;
+}
+
+#fecha{
+    position: relative;
+    height: 3px;
+    font-size: small;
+    color: #004071;
+}
+
+#texto-corto{
+    opacity: 50%;
+}
