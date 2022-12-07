@@ -1,1 +1,57 @@
-<p>cabecero works!</p>
+<nav class="navbar navbar-expand-sm p-2">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">Logo</a>
+    <button
+      type="button"
+      class="navbar-toggler"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="navbarCollapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarCollapse"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul class="navbar-nav ms-auto">
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Inicio</a>
+        </li>
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Sección</a>
+        </li>
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Sección</a>
+        </li>
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Sección</a>
+        </li>
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Sección</a>
+        </li>
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a routerLink="/" class="nav-link">Sección</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+
+        <li *ngIf="!isLoggedInt" class="nav-item">
+          <a routerLink="/login" class="btn btn-info" routerLinkActive="router-link-active">
+            <i class="fas fa-user"></i>Iniciar sesión
+          </a>
+        </li>
+
+        <li *ngIf="isLoggedInt" class="nav-item">
+          <a (click)="logout()" class="btn btn-info">
+            <i class="fas fa-user-times"></i>Cerrar sesión
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
