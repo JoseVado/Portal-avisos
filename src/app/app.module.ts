@@ -1,6 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat/';
+import {
+  AngularFirestoreModule,
+  SETTINGS,
+} from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,15 +38,19 @@ import { PaginadoComponent } from './componentes/cliente/paginado/paginado.compo
     TablaAdminsComponent,
     SubirModificarAvisoComponent,
     SubirModificarAdminComponent,
-    PaginadoComponent
+    PaginadoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    AngularFireModule.initializeApp(environment.firestore),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
