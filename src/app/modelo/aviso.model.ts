@@ -7,5 +7,5 @@ export interface AvisoModel {
   responsable?: string;
   titulo?: string;
   ubicacion_archivo?: string;
-  actualizado?: Timestamp;
+  fecha?: Timestamp;
 }

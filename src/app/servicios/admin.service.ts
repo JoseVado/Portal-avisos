@@ -9,7 +9,7 @@ import { AdminModel } from '../modelo/admin.model';
 import { map } from 'rxjs';
 
 @Injectable()
-export class mascotaServicio {
+export class AdminServicio {
   adminColeccion: AngularFirestoreCollection<AdminModel>;
   adminDoc: AngularFirestoreDocument<AdminModel>;
   admins: Observable<AdminModel[]>;

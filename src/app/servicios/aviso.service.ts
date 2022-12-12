@@ -10,7 +10,7 @@ import { map } from 'rxjs';
 import { FileUploadService } from './fileUpload.service';
 
 @Injectable()
-export class avisoServicio {
+export class AvisoServicio {
   avisoColeccion: AngularFirestoreCollection<AvisoModel>;
   avisoDoc: AngularFirestoreDocument<AvisoModel>;
   avisos: Observable<AvisoModel[]>;

@@ -13,7 +13,7 @@ export class FileUploadService {
     uploadBytes(storageRef, file);
   }
 
-  getFileOfStorage(name: string): Promise<string> {
+  getFileOfStorage(name: string | undefined): Promise<string> {
     const storage = getStorage();
     const storageRef = ref(storage, `${name}`);
 

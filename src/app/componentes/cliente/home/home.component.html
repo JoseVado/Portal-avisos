@@ -18,41 +18,45 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-6">
+
+      <div class="col-md-4 col-sm-6" *ngFor="let avisoTemp of avisos">
         <div class="card mb-4">
-          <img class="card-img-top" src="..." alt="Card image cap" />
+          <img 
+            class="card-img-top" 
+            src="{{avisoTemp.ubicacion_archivo}}" 
+            alt="{{avisoTemp.titulo}}" />
           <div class="card-body">
             <p class="card-text">
-              <small class="text-muted">Fecha</small>
+              <small class="text-muted"> 
+                {{avisoTemp.fecha?.toDate()?.toString()?.substring(0, 15)}} 
+              </small>
             </p>
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{avisoTemp.titulo}}</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. 
+              {{avisoTemp.descripcion_corta}} 
             </p>
-            <button class="btn btn-primary">
-              Case Study ->
-            </button>
+            <a 
+              routerLink="/aviso/{{avisoTemp.id}}" 
+              class="btn btn-primary">
+              Ver más <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
 
-
-
       <div class="col-md-4 col-sm-6">
         <div class="card mb-4">
-          <img class="card-img-top" src="..." alt="Card image cap" />
+          <img class="card-img-top" src="../../../../assets/cargando.png" alt="Card image cap" />
           <div class="card-body">
             <p class="card-text">
               <small class="text-muted">Fecha</small>
             </p>
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Titulo</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. 
+              Cuerpo 
             </p>
             <button class="btn btn-primary">
-              Case Study ->
+              Ver más <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -92,9 +96,9 @@
               This is a wider card with supporting text below as a natural
               lead-in to additional content. 
             </p>
-            <button class="btn btn-primary">
+            <a class="btn btn-primary">
               Case Study ->
-            </button>
+            </a>
           </div>
         </div>
       </div>

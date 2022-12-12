@@ -25,6 +25,11 @@ import { SubirModificarAvisoComponent } from './componentes/admin/subir-modifica
 import { SubirModificarAdminComponent } from './componentes/admin/subir-modificar-admin/subir-modificar-admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaginadoComponent } from './componentes/cliente/paginado/paginado.component';
+import { LoginService } from './servicios/login.service';
+import { FileUploadService } from './servicios/fileUpload.service';
+import { AvisoServicio } from './servicios/aviso.service';
+import { AdminServicio } from './servicios/admin.service';
+import { AuthGuard } from './guardan/auth.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,13 @@ import { PaginadoComponent } from './componentes/cliente/paginado/paginado.compo
     AngularFireStorageModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    FileUploadService,
+    AvisoServicio,
+    AdminServicio,
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
