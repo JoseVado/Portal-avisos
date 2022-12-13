@@ -1,6 +1,11 @@
 
-<form>
-    <!--<flash-messages></flash-messages>-->
+
+
+ <form  #avisoForm="ngForm" (ngSubmit)="guardar(avisoForm.form)">
+
+  <div class="alert alert-danger col-md-12" role="alert" id="alertaError" style="display: none;">
+    <i class="fas fa-regular fa-circle-exclamation"></i>  Es necesario que rellene todos los campos correctamente
+  </div>
 
 <section id="actions" class="py-4 mb-4 ">
   <div class="container">
@@ -26,61 +31,131 @@
 
           <div class="card-body">
             <div class="form-group">
-              <label for="nombre">Título de aviso</label>
+              <label for="titulo">Título de aviso</label>
               <input type="text" 
-                  name="nombre" 
-                  class="form-control" 
+                  name="titulo"
+                  id="titulo" 
+                  class="form-control"
                   placeholder="Título de aviso..."
+                  pattern="[A-z,.\s0-9?!-]{2,20}"
+                  #titulo="ngModel"
+                  [(ngModel)]="aviso.titulo"
+                  [ngClass]="{ 'is-invalid': titulo.errors && titulo.touched }"
                   required
-                  minlength="2"/>
+                  minlength="2"
+                  />
+                  <div [hidden]="!titulo.errors?.['required']" class="invalid-feedback">
+                    Título requerido
+                  </div> 
+  
+                  <div [hidden]="!titulo.errors?.['minlength']" class="invalid-feedback">
+                    - Debe contener al menos 2 caractéres 
+                  </div>
+
+                  <div [hidden]="!titulo.errors?.['pattern']" class="invalid-feedback">
+                   - Cadena no válida
+                  </div>
             </div>
           </div>
 
           <div class="card-body">
               <div class="form-group">
-                <label for="nombre">Descripción corta</label>
+                <label for="descripcionC">Descripción corta</label>
                 <input type="text" 
-                    name="nombre" 
+                    name="descripcionC" 
                     class="form-control" 
                     placeholder="Asunto del aviso..."
-                    required
-                    minlength="2"/>
+                    pattern="[A-z,.\s0-9?!-]{5,50}"
+                    #descripcionC="ngModel"
+                  [(ngModel)]="aviso.descripcionC"
+                  [ngClass]="{ 'is-invalid': descripcionC.errors && descripcionC.touched }"
+                  required
+                  minlength="5"
+                  maxlength="50"/>
+                  <div [hidden]="!descripcionC.errors?.['required']" class="invalid-feedback">
+                    descripcion requerida
+                  </div> 
+  
+                  <div [hidden]="!descripcionC.errors?.['minlength']" class="invalid-feedback">
+                    -  Debe contener al menos 5 caractéres 
+                  </div>
+                  <div [hidden]="!descripcionC.errors?.['pattern']" class="invalid-feedback">
+                    - Cadena no válida
+                   </div>
               </div>
           </div>
 
           <div class="card-body">
               <div class="form-group">
-                <label for="nombre">Responsable</label>
+                <label for="responsable">Responsable</label>
                 <input type="text" 
-                    name="nombre" 
+                    name="responsable" 
                     class="form-control" 
-                    placeholder="Resposnable quie manda el aviso..."
+                    placeholder="Responsable de quién manda el aviso..."
+                    pattern="[A-z\s]{5,50}"
+                    #responsable="ngModel"
+                    [(ngModel)]="aviso.responsable"
+                    [ngClass]="{ 'is-invalid': responsable.errors && responsable.touched }"
                     required
-                    minlength="2"/>
+                    minlength="5"
+                    maxlength="50"/>
+                    <div [hidden]="!responsable.errors?.['required']" class="invalid-feedback">
+                      responsable requerido
+                    </div> 
+    
+                    <div [hidden]="!responsable.errors?.['minlength']" class="invalid-feedback">
+                       - Debe contener al menos 5 caractéres 
+                    </div>
+                    <div [hidden]="!responsable.errors?.['pattern']" class="invalid-feedback">
+                      - Cadena no válida
+                     </div>
               </div>
           </div>
 
           <div class="card-body">
               <div class="form-group">
-                <label for="nombre">Departamento</label>
+                <label for="departamento">Departamento</label>
                 <input type="text" 
-                    name="nombre" 
+                    name="departamento" 
                     class="form-control" 
                     placeholder="Departamento al que perteneces..."
+                    pattern="[A-z\s0-9]{5,20}"
+                    #departamento="ngModel"
+                    [(ngModel)]="aviso.departamento"
+                    [ngClass]="{ 'is-invalid': departamento.errors && departamento.touched }"
                     required
-                    minlength="2"/>
+                    minlength="5"
+                    maxlength="20"/>
+                    <div [hidden]="!departamento.errors?.['required']" class="invalid-feedback">
+                      departamento requerido
+                    </div> 
+    
+                    <div [hidden]="!departamento.errors?.['minlength']" class="invalid-feedback">
+                      - Debe contener al menos 5 caractéres 
+                   </div>
+                   <div [hidden]="!departamento.errors?.['pattern']" class="invalid-feedback">
+                     - Cadena no válida
+                    </div>
               </div>
           </div>
 
           <div class="card-body">
               <div class="form-group">
-                <label for="nombre">Descripción larga</label>
+                <label for="descripcionL">Descripción larga</label>
                 <textarea type="text" 
-                    name="nombre" 
+                    name="descripcionL" 
                     multiple class="form-control" 
                     rows="3"
+                    #descripcionL="ngModel"
+                    pattern="[A-z,.\s0-9?!-]{0,500}"
+                    [(ngModel)]="aviso.descripcionL"
+                    [ngClass]="{ 'is-invalid': descripcionL.errors && descripcionL.touched }"
                     required
-                    minlength="2"></textarea>
+                    maxlength="500"></textarea>
+                    <div [hidden]="!descripcionL.errors?.['pattern']" class="invalid-feedback">
+                      - Cadena no válida
+                    </div>
+
               </div>
               
           </div>
@@ -95,4 +170,5 @@
     </div>
   </div>
 </section>
-</form>
+</form> 
+

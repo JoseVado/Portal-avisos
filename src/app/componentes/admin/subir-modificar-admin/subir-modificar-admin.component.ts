@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubirModificarAdminComponent implements OnInit {
 
+  admin : any = {
+  };
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {}
+
+  
+
+
+
+  guardar({value, valid}: {value:any, valid:boolean}){ 
+    if(!valid){
+      let alertaError = document.getElementById("alertaError");
+      setTimeout(function(){
+        alertaError!.style.display = 'none';
+      }, 4000);
+      alertaError!.style.display = 'inline-block';
+    }
+    
+    
   }
+
+  eliminar(){ }
 
 }
