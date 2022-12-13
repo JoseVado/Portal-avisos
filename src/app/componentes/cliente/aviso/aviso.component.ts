@@ -11,7 +11,7 @@ import { FileUploadService } from 'src/app/servicios/fileUpload.service';
 })
 export class AvisoComponent implements OnInit {
   id: string;
-  aviso: AvisoModel|null;
+  aviso: AvisoModel;
 
   constructor(
     private router: Router,
@@ -22,9 +22,21 @@ export class AvisoComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    
-    this.avisoServicio.getAviso(this.id).subscribe(aviso => {
-      this.aviso = aviso;
-    })
+
+    this.avisoServicio.getAviso(this.id).subscribe((aviso) => {
+      if (aviso) this.aviso = aviso;
+      this.fotos();
+    });
+  }
+
+  fotos() {
+    this.fileUploadServicio
+      .getFileOfStorage(this.aviso.ubicacion_archivo)
+      .then((url) => {
+        this.aviso.ubicacion_archivo = url;
+      })
+      .catch((error) => {
+        this.aviso.ubicacion_archivo = '../../../../assets/cargando.png';
+      });
   }
 }

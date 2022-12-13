@@ -4,4 +4,5 @@ export interface AdminModel {
   apellido?: string;
   departamento?: string;
   puesto?: string;
+  correo?: string;
 }

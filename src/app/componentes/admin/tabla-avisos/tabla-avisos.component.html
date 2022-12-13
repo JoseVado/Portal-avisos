@@ -54,10 +54,10 @@
                   <td> {{ avisoTemp.fecha?.toDate()?.toString()?.substring(0, 15) }} </td>
                   <td> {{ avisoTemp?.descripcion_corta }} </td>
                   <td>
-                    <a class="btn">
+                    <a class="btn" routerLink="/subir-aviso/{{avisoTemp?.id}}">
                         <i class="fas fa-light fa-eye"></i> 
                     </a> 
-                    <a class="btn ">
+                    <a class="btn" (click)="eliminar( avisoTemp )" >
                         <i class="fas fa-light fa-trash-can"></i>
                     </a>
                   </td>

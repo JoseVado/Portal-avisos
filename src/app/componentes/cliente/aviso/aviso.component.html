@@ -1,14 +1,14 @@
 <div class="container py-4">
-    <p id="fecha"><strong>{{aviso?.fecha?.toDate()?.toString()?.substring(0, 15)}}</strong></p>
-    <h2>{{aviso?.titulo}}</h2>
-    <p id="texto-corto">{{aviso?.descripcion_corta}}</p>
+    <p id="fecha"><strong>{{aviso.fecha?.toDate()?.toString()?.substring(0, 15)}}</strong></p>
+    <h2>{{aviso.titulo}}</h2>
+    <p id="texto-corto">{{aviso.descripcion_corta}}</p>
     <div class="container cuerpo">
-        <img src="{{aviso?.ubicacion_archivo}}" alt="foto">
+        <img src="{{aviso.ubicacion_archivo}}" alt="foto">
         <div class="card">
             <div class="catd-text px-4 py-1">
-                Autor: {{aviso?.responsable}}
+                Autor: {{aviso.responsable}}
             </div>
         </div>
-        <p>{{aviso?.descripcion_larga}}</p>
+        <p>{{aviso.descripcion_larga}}</p>
     </div>
 </div>

@@ -6,6 +6,7 @@ export interface AvisoModel {
   descripcion_larga?: string;
   responsable?: string;
   titulo?: string;
+  departamento?: string;
   ubicacion_archivo?: string;
   fecha?: Timestamp;
 }

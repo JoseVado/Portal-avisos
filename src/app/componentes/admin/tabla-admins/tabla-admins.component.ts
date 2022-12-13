@@ -5,18 +5,22 @@ import { AdminServicio } from 'src/app/servicios/admin.service';
 @Component({
   selector: 'app-tabla-admins',
   templateUrl: './tabla-admins.component.html',
-  styleUrls: ['./tabla-admins.component.css']
+  styleUrls: ['./tabla-admins.component.css'],
 })
 export class TablaAdminsComponent implements OnInit {
-
   admins: AdminModel[];
 
-  constructor(private adminServicio: AdminServicio) { }
+  constructor(private adminServicio: AdminServicio) {}
 
   ngOnInit(): void {
-    this.adminServicio.getAdmins().subscribe(admins => {
+    this.adminServicio.getAdmins().subscribe((admins) => {
       this.admins = admins;
     });
   }
 
+  eliminar(admin: AdminModel) {
+    if (confirm('¿Seguro que desea eliminar el admin?')) {
+      this.adminServicio.eliminarAdmin(admin);
+    }
+  }
 }
