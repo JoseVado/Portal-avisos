@@ -1,0 +1,22 @@
+nav{
+    background-color: rgb(1, 40, 64);
+}
+
+nav ul li a{
+    color:white;
+}
+
+.btn-info{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(37,117,153);
+
+}
+
+.container img {
+    max-width: 90px;
+}
+
+#navbarCollapse ul li a:hover {
+    color: #fab702;
+}
