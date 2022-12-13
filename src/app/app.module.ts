@@ -31,6 +31,8 @@ import { AvisoServicio } from './servicios/aviso.service';
 import { AdminServicio } from './servicios/admin.service';
 import { AuthGuard } from './guardan/auth.guard';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,13 +56,14 @@ import { AuthGuard } from './guardan/auth.guard';
     AngularFireAuthModule,
     AngularFireStorageModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   providers: [
     LoginService,
     FileUploadService,
     AvisoServicio,
     AdminServicio,
-    AuthGuard
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })

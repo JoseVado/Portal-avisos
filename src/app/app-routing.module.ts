@@ -10,7 +10,7 @@ import { SubirModificarAdminComponent } from './componentes/admin/subir-modifica
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'aviso', component: AvisoComponent },
+  { path: 'aviso/:id', component: AvisoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'tabla-avisos', component: TablaAvisosComponent },
   { path: 'subir-aviso', component: SubirModificarAvisoComponent },

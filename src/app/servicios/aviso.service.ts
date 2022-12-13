@@ -7,7 +7,6 @@ import {
 import { Observable } from 'rxjs';
 import { AvisoModel } from '../modelo/aviso.model';
 import { map } from 'rxjs';
-import { FileUploadService } from './fileUpload.service';
 
 @Injectable()
 export class AvisoServicio {
@@ -15,15 +14,15 @@ export class AvisoServicio {
   avisoDoc: AngularFirestoreDocument<AvisoModel>;
   avisos: Observable<AvisoModel[]>;
   aviso: Observable<AvisoModel | null>;
+  paginas: number;
+  limite: number = 6;
 
-  constructor(
-    private db: AngularFirestore,
-    private fileUploadServicio: FileUploadService
-  ) {
+  constructor(private db: AngularFirestore) {
     this.avisoColeccion = db.collection('Aviso', (ref) =>
       ref.orderBy('fecha', 'asc')
     );
   }
+
 
   getAvisos(): Observable<AvisoModel[]> {
     this.avisos = this.avisoColeccion.snapshotChanges().pipe(
@@ -39,7 +38,7 @@ export class AvisoServicio {
     return this.avisos;
   }
 
-  agregarMascota(aviso: AvisoModel) {
+  agregarAviso(aviso: AvisoModel) {
     this.avisoColeccion.add(aviso);
   }
 
@@ -59,12 +58,12 @@ export class AvisoServicio {
     return this.aviso;
   }
 
-  modificarMascota(aviso: AvisoModel) {
+  modificarAviso(aviso: AvisoModel) {
     this.avisoDoc = this.db.doc(`Aviso/${aviso.id}`);
     this.avisoDoc.update(aviso);
   }
 
-  eliminarMascota(aviso: AvisoModel) {
+  eliminarAviso(aviso: AvisoModel) {
     this.avisoDoc = this.db.doc(`Aviso/${aviso.id}`);
     this.avisoDoc.delete();
   }

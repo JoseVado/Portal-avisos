@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/servicios/login.service';
-//import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
-//import { LoginService } from 'src/app/servicios/login.service';
+
 
 @Component({
   selector: 'app-cabecero',
@@ -32,7 +31,7 @@ export class CabeceroComponent implements OnInit {
     
   }
   logout() {
-    //this.loginService.logout();
+    this.loginService.logout();
     this.isLoggedInt = false;
     this.router.navigate(['/login']);
   }

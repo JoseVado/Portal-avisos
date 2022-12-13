@@ -1,19 +1,14 @@
 <div class="container py-4">
-    <p id="fecha"><strong>Fecha</strong></p>
-    <h2>Neque porro quisquam est qui dolem ipsum quia dolor sit amet, consectetur, adipsici velit.</h2>
-    <p id="texto-corto">Neque porro quisquam est qui dolem ipsum quia dolor sit amet, consectetur, adipsici velit.</p>
+    <p id="fecha"><strong>{{aviso?.fecha?.toDate()?.toString()?.substring(0, 15)}}</strong></p>
+    <h2>{{aviso?.titulo}}</h2>
+    <p id="texto-corto">{{aviso?.descripcion_corta}}</p>
     <div class="container cuerpo">
-        <img src="" alt="foto">
+        <img src="{{aviso?.ubicacion_archivo}}" alt="foto">
         <div class="card">
             <div class="catd-text px-4 py-1">
-                Autor: Autor
+                Autor: {{aviso?.responsable}}
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ultricies orci, at vestibulum ipsum. Suspendisse fermentum ac metus eget accumsan. Vestibulum nec tristique urna, sed euismod odio.
-
-</p>
+        <p>{{aviso?.descripcion_larga}}</p>
     </div>
 </div>
