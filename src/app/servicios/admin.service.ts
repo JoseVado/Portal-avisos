@@ -23,7 +23,7 @@ export class AdminServicio {
     );
   }
 
-  getMascotas(): Observable<AdminModel[]> {
+  getAdmins(): Observable<AdminModel[]> {
     this.admins = this.adminColeccion.snapshotChanges().pipe(
       map((cambios) => {
         return cambios.map((accion) => {
@@ -37,11 +37,11 @@ export class AdminServicio {
     return this.admins;
   }
 
-  agregarMascota(admin: AdminModel) {
+  agregarAdmin(admin: AdminModel) {
     this.adminColeccion.add(admin);
   }
 
-  getMascota(id: string) {
+  getAdmin(id: string) {
     this.adminDoc = this.db.doc<AdminModel>(`Administrador/${id}`);
     this.admin = this.adminDoc.snapshotChanges().pipe(
       map((accion) => {
@@ -57,12 +57,12 @@ export class AdminServicio {
     return this.admin;
   }
 
-  modificarMascota(admin: AdminModel) {
+  modificarAdmin(admin: AdminModel) {
     this.adminDoc = this.db.doc(`Administrador/${admin.id}`);
     this.adminDoc.update(admin);
   }
 
-  eliminarMascota(admin: AdminModel) {
+  eliminarAdmin(admin: AdminModel) {
     this.adminDoc = this.db.doc(`Administrador/${admin.id}`);
     this.adminDoc.delete();
   }

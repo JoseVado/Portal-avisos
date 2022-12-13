@@ -1,5 +1,5 @@
 
-<form #adminForm="ngForm" (ngSubmit)="guardar(adminForm.form)">
+<form #adminForm="ngForm" (ngSubmit)="guardar(adminForm.form)" class="mb-4">
   
   <div class="alert alert-danger col-md-12" role="alert" id="alertaError" style="display: none;">
     <i class="fas fa-regular fa-circle-exclamation"></i>  Es necesario que rellene todos los campos correctamente
@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <a routerLink="/" class="btn btn-light btn-block">
+        <a routerLink="/tabla-admin" class="btn btn-light btn-block">
           <i class="fas fa-arrow-left"></i> 
         </a>  Regresar al inicio
       </div>

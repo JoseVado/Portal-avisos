@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-10">
           <a
-            href="#"
+            routerLink="/subir-admin"
             class="btn btn-success btn-block col-md-3"
             style="background-color: #00AF3B;"
             data-bs-toggle="modal"
@@ -29,8 +29,8 @@
   
 
   
-  <section id="clientes"    >
-    <div class="container">
+  <section id="clientes">
+    <div class="container mb-4">
       <div class="row">
         <div class="col-md-12">
           <div class="card" >
@@ -39,20 +39,20 @@
                 <tr>
                   <th class="col-1">#</th>
                   <th>Nombre</th>
-                  <th>Texto</th>
-                  <th>Texto</th>
-                  <th>Texto</th>
+                  <th>Apellido</th>
+                  <th>Departamento</th>
+                  <th>Puesto</th>
                   <th class="col-1">Acciones</th>
   
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>{{  1 }}</td>
-                  <td> Nombre  </td>
-                  <td> Texto {{ 1}}</td>
-                  <td> Texto {{ 1}}</td>
-                  <td> Texto {{ 1}}</td>
+                <tr *ngFor="let adminTemp of admins; index as i ">
+                  <td>{{  i+1 }}</td>
+                  <td> {{ adminTemp?.nombre }}  </td>
+                  <td> {{ adminTemp?.apellido }} </td>
+                  <td> {{ adminTemp?.departamento }} </td>
+                  <td> {{ adminTemp?.puesto }} </td>
                   <td>
                     <a class="btn">
                         <i class="fas fa-light fa-eye"></i> 
@@ -64,22 +64,7 @@
   
                 </tr>
 
-                <tr>
-                    <td>{{  2 }}</td>
-                    <td> Nombre 2 </td>
-                    <td> Texto {{ 2}}</td>
-                    <td> Texto {{ 2}}</td>
-                    <td> Texto {{ 2}}</td>
-                    <td>
-                      <a class="btn">
-                        <i class="fas fa-light fa-eye"></i> 
-                      </a> 
-                      <a class="btn">
-                        <i class="fas fa-light fa-trash-can"></i>
-                      </a>
-                    </td>
-    
-                  </tr>
+                
               </tbody>
             </table>
           </div>

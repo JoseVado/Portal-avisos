@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminModel } from 'src/app/modelo/admin.model';
+import { AdminServicio } from 'src/app/servicios/admin.service';
 
 @Component({
   selector: 'app-tabla-admins',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaAdminsComponent implements OnInit {
 
-  constructor() { }
+  admins: AdminModel[];
+
+  constructor(private adminServicio: AdminServicio) { }
 
   ngOnInit(): void {
+    this.adminServicio.getAdmins().subscribe(admins => {
+      this.admins = admins;
+    });
   }
 
 }

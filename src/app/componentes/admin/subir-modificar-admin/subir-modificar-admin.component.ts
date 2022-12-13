@@ -30,6 +30,5 @@ export class SubirModificarAdminComponent implements OnInit {
     
   }
 
-  eliminar(){ }
 
 }

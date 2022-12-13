@@ -31,7 +31,6 @@ export class SubirModificarAvisoComponent implements OnInit {
     
   }
 
-  eliminar(){ }
 
 
 }

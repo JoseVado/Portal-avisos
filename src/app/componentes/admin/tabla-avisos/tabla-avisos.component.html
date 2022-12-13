@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-10">
           <a
-            href="#"
+            routerLink="/subir-aviso"
             class="btn btn-success btn-block col-md-3"
             style="background-color: #00AF3B;"
             data-bs-toggle="modal"
@@ -29,8 +29,8 @@
   
 
   
-  <section id="clientes"    >
-    <div class="container">
+  <section id="clientes">
+    <div class="container mb-4">
       <div class="row">
         <div class="col-md-12">
           <div class="card" >
@@ -38,21 +38,21 @@
               <thead class="thead-dark">
                 <tr>
                   <th class="col-1">#</th>
-                  <th>Nombre</th>
-                  <th>Texto</th>
-                  <th>Texto</th>
-                  <th>Texto</th>
+                  <th>Titulo</th>
+                  <th>Responsable</th>
+                  <th>Fecha</th>
+                  <th>Descripción</th>
                   <th class="col-1">Acciones</th>
   
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>{{  1 }}</td>
-                  <td> Nombre  </td>
-                  <td> Texto {{ 1}}</td>
-                  <td> Texto {{ 1}}</td>
-                  <td> Texto {{ 1}}</td>
+                <tr *ngFor="let avisoTemp of avisos; index as i ">
+                  <td>{{ i+1 }}</td>
+                  <td> {{ avisoTemp?.titulo }} </td>
+                  <td> {{ avisoTemp?.responsable }} </td>
+                  <td> {{ avisoTemp.fecha?.toDate()?.toString()?.substring(0, 15) }} </td>
+                  <td> {{ avisoTemp?.descripcion_corta }} </td>
                   <td>
                     <a class="btn">
                         <i class="fas fa-light fa-eye"></i> 
@@ -64,22 +64,6 @@
   
                 </tr>
 
-                <tr>
-                    <td>{{  2 }}</td>
-                    <td> Nombre 2 </td>
-                    <td> Texto {{ 2}}</td>
-                    <td> Texto {{ 2}}</td>
-                    <td> Texto {{ 2}}</td>
-                    <td>
-                      <a class="btn">
-                        <i class="fas fa-light fa-eye"></i> 
-                      </a> 
-                      <a class="btn">
-                        <i class="fas fa-light fa-trash-can"></i>
-                      </a>
-                    </td>
-    
-                  </tr>
               </tbody>
             </table>
           </div>
