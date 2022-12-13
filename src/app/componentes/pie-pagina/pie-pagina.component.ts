@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-pie-pagina',
   templateUrl: './pie-pagina.component.html',
   styleUrls: ['./pie-pagina.component.css']
+  
 })
 export class PiePaginaComponent implements OnInit {
 
