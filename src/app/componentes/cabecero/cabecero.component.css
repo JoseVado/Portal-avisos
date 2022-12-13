@@ -10,9 +10,13 @@ nav ul li a{
     cursor: pointer;
     color: white;
     background-color: rgb(37,117,153);
-    
+
 }
 
 .container img {
-    max-width: 70px;
+    max-width: 90px;
+}
+
+#navbarCollapse ul li a:hover {
+    color: #fab702;
 }
