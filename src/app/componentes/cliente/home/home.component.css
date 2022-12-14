@@ -17,10 +17,13 @@
 .filter select{
     width: 95%;
 }
-.card-title{
-    line-height: 5px;
-}
+
+
 
 img{
     height: 15rem;
+}
+
+.card{
+    height: 29rem;
 }
