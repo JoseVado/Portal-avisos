@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AvisoModel } from 'src/app/modelo/aviso.model';
 import { AvisoServicio } from 'src/app/servicios/aviso.service';
 import { FileUploadService } from 'src/app/servicios/fileUpload.service';
@@ -20,6 +21,10 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.iniciar();
+  }
+
+  iniciar() {
     this.avisoServicio.getAvisos().subscribe((avisos) => {
       this.avisos = avisos;
       this.fotos();
@@ -38,5 +43,13 @@ export class HomeComponent implements OnInit {
           aviso.ubicacion_archivo = '../../../../assets/cargando.png';
         });
     });
+  }
+
+  filtro() {
+    var filtro: HTMLElement | any = document.getElementById('filter');
+    var selected = filtro.options[filtro.selectedIndex].value;
+
+    this.avisoServicio.setAvisoColeccion(selected, 'desc');
+    this.iniciar();
   }
 }

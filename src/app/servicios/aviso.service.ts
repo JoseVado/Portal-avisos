@@ -7,6 +7,7 @@ import {
 import { Observable } from 'rxjs';
 import { AvisoModel } from '../modelo/aviso.model';
 import { map } from 'rxjs';
+import { OrderByDirection } from 'firebase/firestore';
 
 @Injectable()
 export class AvisoServicio {
@@ -18,11 +19,17 @@ export class AvisoServicio {
   limite: number = 6;
 
   constructor(private db: AngularFirestore) {
-    this.avisoColeccion = db.collection('Aviso', (ref) =>
-      ref.orderBy('fecha', 'asc')
-    );
+    this.setAvisoColeccion('fecha', 'desc');
   }
 
+  setAvisoColeccion(
+    datoOrdenar: string,
+    ordenar:OrderByDirection
+  ): void {
+    this.avisoColeccion = this.db.collection('Aviso', (ref) =>
+      ref.orderBy(datoOrdenar, ordenar)
+    );
+  }
 
   getAvisos(): Observable<AvisoModel[]> {
     this.avisos = this.avisoColeccion.snapshotChanges().pipe(

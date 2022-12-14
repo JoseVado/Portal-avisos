@@ -6,12 +6,12 @@
     </p>
   </div>
 
-  <div class="filter float-right">
+  <div class="filter float-right" >
     <p>Filtrar</p>
-    <select name="Select text" id="filter">
-      <option>Select text</option>
-      <option>Recientes</option>
-      <option>Departamento</option>
+    <select name="Select text" id="filter" (change)="filtro()">
+      <option value="fecha">Recientes</option>
+      <option value="departamento">Departamento</option>
+      <option value="titulo">Titulo</option>
     </select>
   </div>
 
@@ -33,6 +33,7 @@
               <small class="text-muted"> 
                 {{avisoTemp.fecha?.toDate()?.toString()?.substring(0, 15)}} 
               </small>
+              <small class="mx-4">{{avisoTemp?.departamento}}</small>
             </p>
             <h5 class="card-title">{{avisoTemp.titulo}}</h5>
             <p class="card-text">
